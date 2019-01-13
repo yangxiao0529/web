@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/holder/2.9.4/holder.min.js"></script>
+ 	<title>主页</title>
+</head>
+<body>
+ <!-- 导航开始 -->
+<div id="header">
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+     <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand navbar-left" style="padding: 0 0 0 15px;" href="#"><img src="img/logo.png" alt="logo">
+       <!-- 待添加 图片 -->
+
+      </a>
+
+    </div>
+
+    
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="#">首页<span class="sr-only">(current)</span></a></li>
+        <li><a href="#">展会概览</a></li>
+        <li><a href="#">展览服务</a></li>
+        <!-- <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">展览服务</a>
+          <ul class="dropdown-menu">
+                <li><a href="#"></a></li>
+                <li><a href="#">展会概览</a></li>
+                <li><a href="#">新闻资讯</a></li>
+                <li><a href="#">媒体中心</a></li>
+                <li><a href="#">展览服务</a></li>
+                <li><a href="#">新闻资讯</a></li>
+          </ul>
+          </li> -->
+        <li><a href="#">新闻资讯</a></li>
+        <li><a href="#">媒体中心</a></li>
+        <li><a href="#">联系我们</a></li>
+<!-- <li><a href="#"><span class="glyphicon glyphicon-text-background"></span></a></li -->
+       </ul>
+      
+      
+    </div>
+  </div>
+</nav>
+</div>
+
+
+ <!-- 轮播 -->
+<div id="carousel-example-generic" class="carousel slide my-slide" data-ride="carousel">
+   
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    </ol>
+   
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <a target="_blank" href="#">
+                <img src="img/banner2.jpg" alt="">
+            </a>
+        </div>
+        <div class="item">
+            <a target="_blank" href="#">
+                <img src="img/banner1.jpg" alt="">
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    $(function () {
+        /**通用-banner大图自定义缩放**/
+        var zoomWidth = 992; //缩放阀值992px, 即所有小于992px的视口都会对原图进行缩放, 只是缩放比例不同
+        var maxWidth = 1920; //最大宽度1920px
+        var ratio = 1; //缩放比例
+        var viewWidth = window.innerWidth; // 视口宽度
+        var zoomSlider = function () {
+            if (viewWidth < 768) { //当视口小于768时(移动端), 按992比例缩放
+                ratio = viewWidth / zoomWidth; //视口宽度除以阀值, 计算缩放比例
+            } else if (viewWidth < zoomWidth) { //当视口界于768与992之间时, bootstrap主宽度为750, 这区间图片缩放比例固定.
+                ratio = zoomWidth / (zoomWidth + (zoomWidth - 750));
+            } else { // PC端不缩放
+                ratio = 1;
+            }
+            //ratio = viewWidth / zoomWidth; //视口宽度除以阀值, 计算缩放比例
+            //ratio = (ratio<=1) ? ratio : 1; //如果比例值大于1, 说明视口宽度高于阀值, 则不进行任何缩放
+            var width = maxWidth * ratio; //缩放宽度
+            $(".my-slide img").each(function () {
+                $(this).css({
+                    "width": width,
+                    "max-width": width,
+                    "margin-left": -(width - viewWidth) / 2
+                }); //图片自适应居中, 图片宽度与视口宽度差除以2的值, 设置为负margin
+            });
+        }
+
+        zoomSlider(); //页面加载时初始化并检查一次.
+        /**视口发生变化时的事件**/
+        $(window).resize(function () {
+            viewWidth = window.innerWidth; // 重置视口宽度
+            zoomSlider();//判断是否绽放banner
+        });
+    });
+</script>
+
+
+</body>
+</html>
